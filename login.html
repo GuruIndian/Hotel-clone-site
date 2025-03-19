@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login, Registration & Password Recovery</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/images/Hotel.png"
+    />
+    <style>
+      /* Overall page styling */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url("./assets/images/background.jpg") no-repeat center
+          center fixed;
+        background-size: cover;
+      }
+      /* Box styling for login, registration, and recovery forms */
+      .box {
+        width: 400px;
+        background: rgba(217, 223, 193, 0.8); /* Light green background */
+        margin: 50px auto;
+        padding: 30px;
+        border-radius: 35px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);/* Shadow effect */
+        text-align: center;
+      }
+
+      /* Circular user image */
+      .user {
+        width: 100px;
+        border-radius: 50%;
+      }
+      h1 {
+        color: wheat;
+      }
+      h2 {
+        color: #000; /* Black text color */
+      }
+      /* Label styling for input fields */
+      label {
+        font-weight: bold;
+        display: block;
+        text-align: left;
+        margin: 10px 0 5px;
+      }
+      /* Input field styling */
+      input,
+      select {
+        width: calc(100% - 20px);
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      /* Button styling */
+      .b1 {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .b1:hover {
+        background-color: #0056b3;
+      }
+      /* Hide elements dynamically using this class */
+      .hidden {
+        display: none;
+      }
+      /* Error message styling */
+      #err {
+        color: red;
+        font-size: 14px;
+        display: none;
+      }
+    </style>
+
+    <script>
+      /*Admin credentials for authentication */
+      const adminCredentials = {
+        username: "AdminUser",
+        password: "AdminPass123",
+      };
+
+      /*Check localStorage for existing users or initialize the user list */
+      let users = JSON.parse(localStorage.getItem("users")) || [
+        {
+          username: "testuser",
+          email: "test@example.com",
+          password: "password123",
+        },
+      ];
+      /*Function to update localStorage with the latest user list */
+      function saveUsersToLocalStorage() {
+        localStorage.setItem("users", JSON.stringify(users));
+      }
+      /*Function to toggle between different forms (Login, Register, Recover Password) */
+      function toggleForm(formToShow) {
+        document.getElementById("login-form").classList.add("hidden");
+        document.getElementById("register-form").classList.add("hidden");
+        document.getElementById("recover-form").classList.add("hidden");
+        document.getElementById(formToShow).classList.remove("hidden");
+      }
+      /* Function to handle user login */
+      function login() {
+        const username = document.getElementById("login-username").value.trim();
+        const password = document.getElementById("login-password").value.trim();
+        const loginType = document.getElementById("login-type").value;
+        const errorMessage = document.getElementById("login-error");
+        errorMessage.style.display = "none";
+
+        if (loginType === "admin") {
+          if (
+            username === adminCredentials.username &&
+            password === adminCredentials.password
+          ) {
+            alert("Welcome, Admin!");
+            window.location.href = "index.html";
+          } else {
+            errorMessage.style.display = "block";
+            errorMessage.textContent = "Invalid admin credentials!";
+          }
+        } else {
+          const user = users.find(
+            (u) => u.username === username && u.password === password
+          );
+          if (user) {
+            alert(`Welcome, ${user.username}!`);
+            window.location.href = "index.html";
+          } else {
+            errorMessage.style.display = "block";
+            errorMessage.textContent = "Invalid user credentials!";
+          }
+        }
+      }
+      /*Function to handle new user registration*/
+      function register() {
+        const username = document
+          .getElementById("register-username")
+          .value.trim();
+        const email = document.getElementById("register-email").value.trim();
+        const password = document
+          .getElementById("register-password")
+          .value.trim();
+        const errorMessage = document.getElementById("register-error");
+        errorMessage.style.display = "none";
+
+        /*  Regular expression for basic email validation*/
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        /*Validation: Check for empty fields*/
+        if (!username || !email || !password) {
+          errorMessage.style.display = "block";
+          errorMessage.textContent = "All fields are required!";
+          return;
+        }
+
+        if (!emailPattern.test(email)) {
+          errorMessage.style.display = "block";
+          errorMessage.textContent = "Invalid email format!";
+          return;
+        }
+        /* Validation: Check if username already exists*/
+        if (users.find((u) => u.username === username)) {
+          errorMessage.style.display = "block";
+          errorMessage.textContent = "Username already exists!";
+          return;
+        }
+
+        /*User limit check (max 10 users, delete 2 oldest if exceeded)*/
+        if (users.length >= 10) {
+          users.splice(0, 2); /* Remove first 2 oldest users*/
+        }
+        /*Add new user and save to localStorage */
+        users.push({ username, email, password });
+        saveUsersToLocalStorage(); /*Save the updated user list*/
+        alert("Registration successful! You can now log in.");
+        toggleForm("login-form"); /* Redirect to login form*/
+      }
+      /*Function to recover password using email*/
+      function recoverPassword() {
+        const email = document.getElementById("recover-email").value.trim();
+        const errorMessage = document.getElementById("recover-error");
+        errorMessage.style.display = "none";
+        /* Check if the email exists in the user database */
+        const user = users.find((u) => u.email === email);
+        if (user) {
+          alert(
+            `Password recovery details:\nUsername: ${user.username}\nPassword: ${user.password}`
+          );
+          toggleForm("login-form"); /* Redirect to login form*/
+        } else {
+          errorMessage.style.display = "block";
+          errorMessage.textContent = "No user found with this email!";
+        }
+      }
+      /*Function to hide error messages when user starts typing */
+      function hideError(id) {
+        document.getElementById(id).style.display = "none";
+      }
+    </script>
+  </head>
+  <body>
+    <center><h1>Welcome To Hotel Management System</h1></center>
+
+    <!-- Login Form -->
+    <div class="box" id="login-form">
+      <!-- User image -->
+      <legend>
+        <img src="./assets/images/user.jpg" alt="user" class="user" />
+      </legend>
+      <h2>Login Here</h2>
+      <label for="login-username">Username:</label>
+      <input
+        type="text"
+        id="login-username"
+        placeholder="Enter your username"
+        oninput="hideError('login-error')"
+      />
+      <label for="login-password">Password:</label>
+      <input
+        type="password"
+        id="login-password"
+        placeholder="********"
+        oninput="hideError('login-error')"
+      />
+      <label for="login-type">Login Type:</label>
+      <select id="login-type">
+        <option value="admin">Admin</option>
+        <option value="user">User</option>
+      </select>
+      <span id="login-error" style="color: red; display: none"></span>
+      <br />
+      <button onclick="login()" class="b1">LOGIN</button>
+      <br /><br />
+      <a href="#" onclick="toggleForm('register-form')"
+        >Not a User? Register here</a
+      ><br />
+      <a href="#" onclick="toggleForm('recover-form')">Forgot Password?</a>
+    </div>
+
+    <!-- Registration Form -->
+    <div class="box hidden" id="register-form">
+      <h2>Register Here</h2>
+      <!-- User image -->
+      <legend>
+        <img src="./assets/images/REG.jpeg" alt="user" class="user" />
+      </legend>
+      <label for="register-username">Username:</label>
+      <input
+        type="text"
+        id="register-username"
+        placeholder="Enter a username"
+        oninput="hideError('register-error')"
+      />
+      <label for="register-email">Email:</label>
+      <input
+        type="email"
+        id="register-email"
+        placeholder="Enter your email"
+        oninput="hideError('register-error')"
+      />
+      <label for="register-password">Password:</label>
+      <input
+        type="password"
+        id="register-password"
+        placeholder="Create a password"
+        oninput="hideError('register-error')"
+      />
+      <span id="register-error" class="hidden"></span>
+      <br />
+      <button onclick="register()" class="b1">REGISTER</button>
+      <br /><br />
+      <a href="#" onclick="toggleForm('login-form')"
+        >Already a User? Login here</a
+      >
+    </div>
+
+    <!-- Password Recovery Form -->
+    <div class="box hidden" id="recover-form">
+      <h2>Recover Password</h2>
+      <label for="recover-email">Email:</label>
+      <input
+        type="email"
+        id="recover-email"
+        placeholder="Enter your registered email"
+        oninput="hideError('recover-error')"
+      />
+      <span id="recover-error" class="hidden"></span>
+      <br />
+      <button onclick="recoverPassword()" class="b1">RECOVER PASSWORD</button>
+      <br /><br />
+      <a href="#" onclick="toggleForm('login-form')">Back to Login</a>
+    </div>
+  </body>
+</html>

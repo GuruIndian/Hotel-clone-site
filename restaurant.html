@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel Restaurant</title>
+    <link rel="stylesheet" href="./assets/css/restaurant.css" />
+  </head>
+  <body>
+    <header class="navbar">
+        <a href="index.html" class="logo">
+        <img src="./assets/images/Hotel.png" alt="Hotel Logo" />
+        <span>Hyatt Hotel<sub>Restaurant</sub></span>
+        </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#reservation">Reservations</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="home" class="hero">
+      <h1>Welcome to Our Hotel Restaurant</h1>
+      <p>Enjoy an unforgettable dining experience with us.</p>
+      <button onclick="scrollToSection('reservation')">
+        Make a Reservation
+      </button>
+    </section>
+
+    <section id="menu" class="menu-section">
+      <h2>Our Menu</h2>
+      <div class="menu-carousel">
+        <button class="prev" onclick="slideMenu(-1)">&#10094;</button>
+        <div class="menu-slider">
+          <div class="menu-item">
+            <img src="./assets/images/salmon.jpg" alt="Grilled Salmon" />
+            <h3>Grilled Salmon</h3>
+            <p>$25 - Freshly grilled salmon with seasonal vegetables.</p>
+          </div>
+          <div class="menu-item">
+            <img src="./assets/images/salad.jpg" alt="Caesar Salad" />
+            <h3>Caesar Salad</h3>
+            <p>$12 - Classic Caesar salad with homemade dressing.</p>
+          </div>
+          <div class="menu-item">
+            <img
+              src="./assets/images/lava_cake.jpg"
+              alt="Chocolate Lava Cake"
+            />
+            <h3>Chocolate Lava Cake</h3>
+            <p>$10 - Warm chocolate cake with a molten center.</p>
+          </div>
+          <div class="menu-item">
+            <img src="./assets/images/pasta.jpg" alt="Creamy Pasta" />
+            <h3>Creamy Pasta</h3>
+            <p>$18 - Pasta in a creamy Alfredo sauce with Parmesan.</p>
+          </div>
+          <div class="menu-item">
+            <img src="./assets/images/steak.jpg" alt="Steak" />
+            <h3>Steak</h3>
+            <p>$35 - Juicy grilled steak served with garlic butter.</p>
+          </div>
+          <div class="menu-item">
+            <img src="./assets/images/soup.jpg" alt="Tomato Soup" />
+            <h3>Tomato Soup</h3>
+            <p>$8 - Fresh tomato soup served with croutons.</p>
+          </div>
+          <div class="menu-item">
+            <img src="./assets/images/risotto.jpg" alt="Mushroom Risotto" />
+            <h3>Mushroom Risotto</h3>
+            <p>$22 - Creamy risotto with fresh mushrooms and Parmesan.</p>
+          </div>
+          <!-- Menu Item 11 -->
+          <div class="menu-item">
+            <img src="./assets/images/chicken.jpg" alt="Roast Chicken" />
+            <h3>Roast Chicken</h3>
+            <p>$24 - Herb-marinated roast chicken with a slide of potatoes.</p>
+          </div>
+          <!-- Menu Item 12 -->
+          <div class="menu-item">
+            <img src="./assets/images/lasagna.jpg" alt="Lasagna" />
+            <h3>Lasagna</h3>
+            <p>$18 - Traditional Italian lasagna with rich meat sauce.</p>
+          </div>
+          <!-- Menu Item 13 -->
+          <div class="menu-item">
+            <img src="./assets/images/tacos.jpg" alt="Tacos" />
+            <h3>Tacos</h3>
+            <p>$12 - Soft tacos with your choice of chicken or beef.</p>
+          </div>
+          <!-- Menu Item 14 -->
+          <div class="menu-item">
+            <img src="./assets/images/fried_rice.jpg" alt="Fried Rice" />
+            <h3>Fried Rice</h3>
+            <p>
+              $13 - Stir-fried rice with vegetables and your choice of protein.
+            </p>
+          </div>
+          <!-- Menu Item 15 -->
+          <div class="menu-item">
+            <img src="./assets/images/breakfast.jpg" alt="Breakfast Burrito" />
+            <h3>Breakfast Burrito</h3>
+            <p>
+              $10 - Scrambled eggs, bacon, and cheese wrapped in a tortilla.
+            </p>
+          </div>
+          <!-- Menu Item 16 -->
+          <div class="menu-item">
+            <img src="./assets/images/ramen.jpg" alt="Ramen" />
+            <h3>Ramen</h3>
+            <p>$14 - Japanese noodle soup with a savory broth and toppings.</p>
+          </div>
+          <!-- Menu Item 17 -->
+          <div class="menu-item">
+            <img
+              src="./assets/images/grilled_cheese.jpg"
+              alt="Grilled Cheese Sandwich"
+            />
+            <h3>Grilled Cheese Sandwich</h3>
+            <p>$8 - Crispy bread with melted cheese inside.</p>
+          </div>
+          <!-- Menu Item 18 -->
+          <div class="menu-item">
+            <img
+              src="./assets/images/fish_and_chips.jpg"
+              alt="Fish and Chips"
+            />
+            <h3>Fish and Chips</h3>
+            <p>$15 - Crispy battered fish with seasoned fries.</p>
+          </div>
+          <button class="next" onclick="slideMenu(1)">&#10095;</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="reservation" class="reservation-section">
+      <h2>Reserve Your Table</h2>
+      <form id="reservationForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required />
+
+        <label for="time">Time:</label>
+        <div class="custom-time-picker">
+          <input type="time" id="time" name="time" required />
+          <button type="button" class="time-dropdown-btn">Select Time</button>
+          <ul class="time-dropdown">
+            <li data-time="12:00">12:00 PM</li>
+            <li data-time="12:30">12:30 PM</li>
+            <li data-time="13:00">1:00 PM</li>
+            <li data-time="13:30">1:30 PM</li>
+            <li data-time="14:00">2:00 PM</li>
+            <li data-time="18:00">6:00 PM</li>
+            <li data-time="18:30">6:30 PM</li>
+            <li data-time="19:00">7:00 PM</li>
+            <li data-time="19:30">7:30 PM</li>
+            <li data-time="20:00">8:00 PM</li>
+          </ul>
+        </div>
+
+        <label for="guests">Number of Guests:</label>
+        <input type="number" id="guests" name="guests" min="1" required />
+
+        <button type="submit">Book Now</button>
+      </form>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <h2>Contact Us</h2>
+      <p>Email: akhotel24into7@gmail.com</p>
+      <p>Phone: +91 62600 62470</p>
+      <p>
+        Address: Hyatt Raipur Magneto The Mall, N.H. 6, Jivan Vihar, Labhandih,
+        Raipur, Chhattisgarh 492001
+      </p>
+    </section>
+
+    <footer>
+      <p>© 2024 Hyatt Hotel <sub>Restaurant</sub> . All rights reserved.</p>
+    </footer>
+
+    <script src="./assets/javascript/restaurant.js"></script>
+  </body>
+</html>

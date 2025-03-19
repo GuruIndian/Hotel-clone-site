@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Room Booking</title>
+    <link
+      rel="icon"
+      type="image/jpg"
+      sizes="32x32"
+      href="./assets/images/Hotel.png"
+    />
+    <link rel="stylesheet" href="./assets/css/booking.css" />
+    <script defer src="./assets/javascript/booking.js"></script>
+    <link href="./assets/fontawesome/css/css2.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/fontawesome/css/all.min.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="navbar">
+        <a href="index.html" class="logo">
+          <img src="./assets/images/Hotel.png" alt="Hotel Logo" />
+          <span>Hyatt Hotel <sub>Rooms</sub></span>
+        </a>
+        <a href="history.html" class="home-icon">📖 History</a>
+      </div>
+    </header>
+
+    <main>
+      <h1>Book Your Stay</h1>
+      <div id="room-list" class="room-list"></div>
+      <button id="show-more" onclick="showMoreRooms()">Show More</button>
+      <p id="last-page-notification" class="notification" style="display: none">
+        This is the last page of rooms.
+      </p>
+    </main>
+    <div id="payment-section" class="payment-section" style="display: none">
+      <h2>Payment Details</h2>
+      <p id="payment-summary"></p>
+      <label for="payment-method">Select Payment Method:</label>
+      <select id="payment-method">
+        <option value="Credit Card">Credit Card</option>
+        <option value="Debit Card">Debit Card</option>
+        <option value="Cash">Cash</option>
+      </select>
+      <button id="confirm-payment" onclick="confirmPayment()">Pay</button>
+      <button onclick="cancelPayment()">Cancel</button>
+    </div>
+
+    <button id="back-to-top" onclick="scrollToFirstImage()">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Footer Section -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#" id="quick-link-services">Services</a></li>
+            <li><a href="About.html">Ask Query</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>
+            <strong>Email:</strong>
+            <a href="mailto:akhotel24into7@gmail.com" class="email-link">
+              akhotel24into7@gmail.com
+            </a>
+          </p>
+          <p>
+            <strong>Phone:</strong>
+            <a href="tel:+916260062470" class="email-link1">+91 62600 62470</a>
+          </p>
+          <p>
+            <strong>Address:</strong> Hyatt Raipur, Magneto The Mall, N.H. 6,
+            Jivan Vihar, Labhandih, Raipur, Chhattisgarh 492001
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#" title="Facebook" class="social-link1">
+              <i class="fab fa-facebook-f"></i> Facebook
+            </a>
+
+            <a href="#" title="Twitter" class="social-link">
+              <i class="fab fa-twitter"></i> Twitter
+            </a>
+            <a href="#" title="Instagram" class="social-link">
+              <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <a href="#" title="LinkedIn" class="social-link">
+              <i class="fab fa-linkedin-in"></i> LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Hyatt Hotel<sub>Rooms</sub>. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

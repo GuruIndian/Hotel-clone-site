@@ -1,0 +1,295 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    background-color: #f9f9f9;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(to right, #4CAF50, #2E7D32);
+    color: white;
+    padding: 1rem 0;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+/* Navbar */
+.navbar a {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #ffd700;
+}
+
+/* About Section */
+.about-section {
+    text-align: center;
+    padding: 50px 20px;
+    background: #fff;
+}
+
+.about-section h2,
+.map-section h2,
+.contact-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #2E7D32;
+}
+
+.about-section p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* Facilities */
+.facilities {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    text-align: left;
+    padding: 20px;
+}
+
+.facilities p {
+   
+    display: flex;
+    align-items: center;
+    font-size: 1.1em;
+    flex-wrap: wrap;
+}
+
+.facilities i {
+    margin-right: 10px;
+    color: #00416a;
+    font-size: 1.2em;
+}
+
+.about-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* Map Section */
+.map-section {
+    padding: 50px 20px;
+    background: #ffffff;
+    text-align: center;
+}
+
+
+
+/* Contact Section */
+.contact-section {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.contact-section form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-section input,
+.contact-section textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.contact-section button {
+    padding: 12px 24px;
+    background: #2575fc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.contact-section button:hover {
+    background: #6a11cb;
+}
+
+.whatsapp-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: #25D366;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.whatsapp-btn:hover {
+    background: #1EBE5D;
+}
+
+/* Footer */
+.footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+.footer p {
+    margin: 10px 0;
+}
+
+.email-link {
+    font-size: 20px;
+    font-weight: bold;
+    color: white; /* White */
+    text-decoration: underline;
+    transition: color 0.3s ease;
+  }
+  
+  .email-link:hover {
+    color: red; /* Red */
+  }
+  
+  .email-link:active {
+    color: blueviolet; /* Blue Violet */
+  }
+  .email-link1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .email-link1:hover {
+    color: red; /* Red */
+  }
+  
+  .email-link1:active {
+    color: blueviolet; /* Blue Violet */
+  }
+  
+  
+/* Social Icons Styling */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Equal space between icons */
+    margin-top: 20px;
+    flex-wrap: wrap; /* Prevents overlap on smaller screens */
+}
+
+/* Social Icon Links */
+.social-icons a {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    background-color: #0077b5; /* Default color */
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Different Colors for Each Social Media */
+.social-icons a:nth-child(1) { background: #3b5998; } /* Facebook */
+.social-icons a:nth-child(2) { background: #1DA1F2; } /* Twitter */
+.social-icons a:nth-child(3) { background: #E1306C; } /* Instagram */
+.social-icons a:nth-child(4) { background: #0077b5; } /* LinkedIn */
+
+/* Hover Effects */
+.social-icons a:hover {
+    transform: scale(1.2); /* Slight Zoom on Hover */
+    opacity: 0.9;
+}
+
+/* Ensure Icons are Centered */
+.social-icons a i {
+    line-height: 1;
+}
+
+
+.social-icons a:hover {
+    background: #0056b3;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .navbar a {
+        display: block;
+        margin: 10px 0;
+    }
+
+    #map {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-section p,
+    .contact-section label,
+    .contact-section input,
+    .contact-section textarea {
+        font-size: 0.9rem;
+    }
+}

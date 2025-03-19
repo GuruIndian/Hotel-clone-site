@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hyatt Hotel Gym</title>
+  <link
+  rel="icon"
+  type="image/jpg"
+  sizes="32x32"
+  href="./assets/images/Hotel.png"
+/>
+  <link rel="stylesheet" href="./assets/css/Gym.css">
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <a href="index.html" class="logo">
+        <img src="./assets/images/Hotel.png" alt="Hotel Logo" />
+        <span>Hyatt Hotel<sub>Gym</sub></span>
+      </a>
+    <nav>
+      <ul>
+        <li><a href="#facilities" class="nav-link">Facilities</a></li>
+        <li><a href="#feedback" class="nav-link">Feedback</a></li>
+      </ul>
+    </nav>
+    </div>
+  </header>
+
+  <section id="overview">
+    <h1>Welcome to Our Hotel Gym</h1>
+    <p>State-of-the-art facilities for all your fitness needs.</p>
+  </section>
+
+  <section id="facilities">
+    <h2>Our Facilities</h2>
+    <div class="facility-item">
+      <img src="./assets/images/gym-equipment.webp" alt="Gym Equipment" loading="lazy">
+      <p>High-tech equipment for all fitness levels.</p>
+    </div>
+    <div class="facility-item">
+      <img src="./assets/images/yoga-classes.webp" alt="Yoga Classes" loading="lazy">
+      <p>Yoga and fitness classes for a balanced workout.</p>
+    </div>
+  </section>
+
+  <section id="feedback">
+    <h2>User Feedback</h2>
+    <form id="feedbackForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" placeholder="Your Name" required>
+      
+      <label for="feedbackText">Feedback:</label>
+      <textarea id="feedbackText" rows="4" placeholder="Write your feedback here..." required></textarea>
+      
+      <button type="submit">Submit Feedback</button>
+    </form>
+  </section>
+  
+
+  <footer>
+    <div class="footer-section">
+      <h3>Contact Us</h3>
+      <p><strong>Email:</strong> 
+        <a href="mailto:akhotel24into7@gmail.com" class="email-link">
+          akhotel24into7@gmail.com
+        </a>
+      </p>
+      <p><strong>Phone:</strong> +91 62600 62470</p>
+      <p><strong>Address:</strong> Hyatt Raipur, Magneto The Mall, N.H. 6, 
+        Jivan Vihar, Labhandih, Raipur, Chhattisgarh 492001</p>
+    </div>
+    <p>&copy; 2024 Hyatt Hotel Gym. All rights reserved.</p>
+  </footer>
+
+  <script src="./assets/javascript/Gym.js"></script>
+</body>
+</html>

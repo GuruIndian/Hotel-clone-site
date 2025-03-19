@@ -1,0 +1,321 @@
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8; /*Near White Gray */
+  }
+
+  header {
+    background: #598cbd; /*Grayish Blue*/
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  header a {
+    color: #fff; /*Pure white*/
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+
+
+  .navbar {
+      display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #0056b3; /* deep Blue */
+        padding: 13px 26px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar a.logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar a.logo img {
+    height: 40px;
+    margin-right: 10px;
+  }
+
+
+
+  main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .room-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .room {
+    width: 30%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .room img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+
+  button {
+    background-color: #007bff; /* Blue */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #0056b3; /* Deep Blue */
+  }
+
+  label {
+    display: block;
+    margin: 10px 0;
+    font-size: 1em;
+  }
+
+  .notification {
+    text-align: center;
+    margin-top: 20px;
+    color: red;
+    font-weight: bold;
+  }
+
+  /* Payment Section */
+  #payment-section {
+    display: none;
+    background: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+
+  select {
+    padding: 8px;
+    width: 100%;
+    border: 1px solid #ccc;/* Light Gray */
+    border-radius: 5px;
+  }
+  #back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: violet;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none; /* Initially hidden */
+    z-index: 1000;
+    transition: all 0.3s ease;
+  }
+
+  #back-to-top:hover {
+    background-color: #555;/* Dark Gray */
+    transform: scale(1.1);
+  }
+
+
+  /* Footer Section */
+  footer {
+    background: rgb(42, 42, 46);/* Dark Gray */
+    color: #fff;
+    padding: 2em 0;
+  }
+
+    
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2em;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1em;
+      align-items: center;
+      text-align: center;
+    }
+
+    .email-link {
+      font-size: 20px;
+      font-weight: bold;
+      color: white; /* White */
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+    
+    .email-link:hover {
+      color: red; /* Red */
+    }
+    
+    .email-link:active {
+      color: blueviolet; /* Blue Violet */
+    }
+    .email-link1 {
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .email-link1:hover {
+      color: red; /* Red */
+    }
+    
+    .email-link1:active {
+      color: blueviolet; /* Blue Violet */
+    }
+    
+    .footer-section {
+      flex: 1;
+      min-width: 250px;
+      margin-bottom: 20px; 
+    }
+
+    .footer-section p {
+      margin-bottom: 12px; 
+      line-height: 1.6;
+    }
+
+    .footer-section h3 {
+      color: #fbc2eb;
+      margin-bottom: 1em;
+      text-transform: uppercase;
+    }
+    .footer-section h4 {
+      color: #fbc2eb; /* Light Pink */
+      margin-bottom: 1em;
+      text-transform: uppercase;
+    }
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-section ul li {
+      margin: 0.5em 0;
+    }
+    
+    .footer-section ul li a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-section ul li a:hover {
+      color: #2575fc; /* Light Blue */
+    }
+
+    /* Social Icons - Base Styles */
+    .social-icons {
+      display: flex;
+      gap: 1em;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .social-icons a {
+      font-size: 35px;
+      display: inline-block;
+      width: 42px;
+      height: 42px;
+      border-radius: 35%;
+      text-decoration: none;
+      overflow: hidden; 
+      background: #c6cfc6; /*Light Greenish Gray */  
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+  
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2em;
+      font-size: 0.9em;
+      color: #aaa;
+    }
+
+    
+        /* Responsive Design for Social Icons */
+        @media (max-width: 768px) {
+          .social-icons a {
+            width: 35px;
+            height: 35px;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .social-icons a {
+            width: 30px;
+            height: 30px;
+          }
+        }
+        
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .navbar ul {
+        flex-direction: column;
+        gap: 0.5em;
+      }
+    
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+    
+      .hero .hero-image img {
+        width: 100%;
+      }
+    
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
